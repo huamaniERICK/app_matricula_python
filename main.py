@@ -1,29 +1,95 @@
-"""
-- registrar alumnos.
-- generar fichas de matricula
-- mostrar la lista de todos los matriculados
-- filtrar matriculados por programa de estudio
-"""
+
+# - registrar alumnos.
+# - generar fichas de matricula
+# - mostrar la lista de todos los matriculados
+# - filtrar matriculados por programa de estudio
+
 lista_alumnos=[]
-#inicio de problema
-#necesito poder agregar mas alumnos sin neceisdad de crear tantas variables
-#posible solucion cre o encerar el codigo en un cliclo while
+
+
+def mensaje_menu():
+    menu_opciones="""
+      -----Bienvenido al sistema--------
+      -----Registra tu alumno----------
+    1.ingrese (s) si deseas agregar nuevo alumno
+    2. ingrese (n) si deseas salir del programa
+    Escribe la opcion que deseas realizar:"""
+    return menu_opciones
+
+def ingrese_datos_alumno():
+    id=len(lista_alumnos)+1
+    cui=int(input(" ingrese el numero de su dni: "))
+    nombre=input("ingrese el nombre del alumno: ")
+    apellido=input("ingrese el apellido del alumno: ")
+    numero_celular=int(input("ingrese su numero de celular: "))
+    programa_estudio=input("ingrese el programa de estudio: ")
+    ciclo_academico=input("ingrese el ciclo academico: ")
+    email=input("ingrese su correo electronico: ")
+    guardar_datos_alumno(id,cui,nombre,apellido,numero_celular,programa_estudio,ciclo_academico,email)
+
+def guardar_datos_alumno(id,cui,nombre,apellido,numero_celular,programa_estudio,ciclo_academico,email):
+    alumno={
+          "id":id,
+          "cui":cui,
+          "nombre":nombre,
+          "apellido":apellido,
+          "numero_celular":numero_celular,
+          "programa_estudio":programa_estudio,
+          "ciclo_academico":ciclo_academico,
+          "email":email
+        }
+    lista_alumnos.append(alumno)
 
 while True:
-    opcion=input
+    menu_opciones=input(mensaje_menu())
+    if menu_opciones.lower() == "n":
+        print("saliendo del sistema ")
+        break
+    elif menu_opciones.lower() == "s":
+      
+      ingrese_datos_alumno()
+    else:
+        print("opcion erronea")
 
-    if opcion.lower()=="n"
-    break
+print (lista_alumnos)
 
-nombre=input("Ingrese el nombre del alumno: ")
-apellido=input("Ingrese el apeliido del alumno: ")
-alumno=(
-    "nombre":nombre,
-    "apellido":pellido
-)
-lista_alumnos.append(alumno)
+    # menu_opciones=input("""
+    #    ----------Bienvenido al sistema----------
+    #    --------Registra tu alumno--------
+    #    1. Escribe (s) si deseas agregar un nuevo alumno
+    #    2. Escribe (n) si deseas salir del sitema
+    #    Escribe la accion que desea realizar:
+    #    """)
+    # if menu_opciones.lower() == "n":
+    #     print("saliendo del sistema ")
+    #     break
+    # elif menu_opciones.lower() =="s":
+    #   id=len(lista_alumnos)+1
+    #   cui=int(input(" ingrese el numero de su dni: "))
+    #   nombre=input("ingrese el nombre del alumno: ")
+    #   apellido=input("ingrese el apellido del alumno: ")
+    #   numero_celular=int(input("ingrese su numero de celular: "))
+    #   programa_estudio=input("ingrese el programa de estudio: ")
+    #   ciclo_academico=input("ingrese el ciclo academico: ")
+    #   email=input("ingrese su correo electronico: ")
+#       alumno={
+#           "id":id,
+#           "cui":cui,
+#           "nombre":nombre,
+#           "apellido":apellido,
+#           "numero_celular":numero_celular,
+#           "programa_estudio":programa_estudio,
+#           "ciclo_academico":ciclo_academico,
+#           "email":email
+#     #     }
+#       lista_alumnos.append(alumno)
+#     else:
+#         print("opcion erronea")
 
-print(lista_alumnos)
+# print(lista_alumnos)
+    
+    
+
 
 
 
